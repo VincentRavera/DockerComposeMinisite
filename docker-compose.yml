@@ -1,0 +1,16 @@
+version: '2'
+services:
+  javaclient:
+    build: .
+    links:
+      - mysql:mysql
+    ports:
+      - "3306:3306"
+  
+  mysql:
+    image: mysql/mysql-server
+    environment:
+      - MYSQL_DATABASE=toto
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+
